@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<table>
+  <tr>
+    <th>FirstName:</th>
+    <td>
+      <input type="text" [(ngModel)]="form.data.firstName" name="firstName" />
+    </td>
+  </tr>
+  <tr>
+    <th>LastName:</th>
+    <td>
+      <input type="text" [(ngModel)]="form.data.lastName" name="lastName" />
+    </td>
+  </tr>
+  <tr>
+    <th>LoginId:</th>
+    <td>
+      <input type="text" [(ngModel)]="form.data.loginId" name="loginId" />
+    </td>
+  </tr>
+  <tr>
+    <th>Password:</th>
+    <td>
+      <input type="text" [(ngModel)]="form.data.password" name="password" />
+    </td>
+  </tr>
+  <tr>
+    <th>RoleName:</th>
+    <td>
+      <select name="roleId" [(ngModel)]="form.data.roleId">
+        <option [ngValue]="" value="undefined">
+          {{ "------Select User-------" }}
+        </option>
+        <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">
+          {{ obj.value }}
+        </option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <th>DOB:</th>
+    <td><input type="date" [(ngModel)]="form.data.dob" name="dob" /></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td><button (click)="save()">save</button></td>
+  </tr>
+</table>

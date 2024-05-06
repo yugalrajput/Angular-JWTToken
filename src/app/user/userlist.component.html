@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<table>
+  <tr>
+    <td><input type="text" [(ngModel)]="form.searchParams.firstName" /></td>
+    <td>
+      <input type="date" name="dob" [(ngModel)]="form.searchParams.dob" />
+    </td>
+    <td>
+      <select name="roleId" [(ngModel)]="form.searchParams.roleId">
+        <option [ngValue]="" value="undefined">
+          {{ "------Select User-------" }}
+        </option>
+        <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">
+          {{ obj.value }}
+        </option>
+      </select>
+    </td>
+    <td><button (click)="search()">search</button></td>
+  </tr>
+</table>
+<table border="1" style="width: 100%; border: groove">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>LoginId</th>
+    <th>Password</th>
+    <th>DOB</th>
+    <th>Role</th>
+  </tr>
+  <tr *ngFor="let m of form.list">
+    <td>{{ m.id }}</td>
+    <td>
+      <img
+        src="http://localhost:8080/User/profilePic/{{ m.id }}"
+        height="55px"
+        width="80px"
+      />
+    </td>
+    <td>{{ m.firstName }}</td>
+    <td>{{ m.lastName }}</td>
+    <td>{{ m.loginId }}</td>
+    <td>{{ m.password }}</td>
+    <td>{{ m.dob }}</td>
+    <td>{{ m.roleName }}</td>
+  </tr>
+</table>
